@@ -1,3 +1,16 @@
+<!--<resources>-->
+<!--    <string name="app_name">Project_cal</string>-->
+<!--    <string name="addition_result">a+b=%1$d</string>-->
+<!--    <string name="subtraction_result">a-b=%1$d</string>-->
+
+<!--</resources>-->
+
 <resources>
     <string name="app_name">Project_cal</string>
+    <string name="addition_result">a + b = %1$d</string>
+    <string name="subtraction_result">a - b = %1$d</string>
+    <string name="multiplication_result">a * b = %1$d</string>
+    <string name="division_result">a / b = %1$d</string>
+    <string name="division_by_zero_error">B phải khác 0</string>
+    <string name="invalid_input_error">Vui lòng nhập số hợp lệ</string>
 </resources>
