@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
      int b = Integer.parseInt(edtB.getText().toString());
 
      int c = a + b;
-     edtKQ.setText(c+""); // Hiển thị kết quả
+     edtKQ.setText(c+""); 
  }
         });
     }
