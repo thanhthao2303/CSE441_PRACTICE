@@ -1,6 +1,8 @@
 package com.example.btth01;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -23,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
         edtB = findViewById(R.id.edtB);
         edtKQ = findViewById(R.id.edtKQ);
         btntong = findViewById(R.id.btntong);
+
         btntong.setOnClickListener(new View.OnClickListener() {
+ @SuppressLint("SetTextI18n")
  @Override
  public void onClick(View view) {
      int a = Integer.parseInt(edtA.getText().toString());
