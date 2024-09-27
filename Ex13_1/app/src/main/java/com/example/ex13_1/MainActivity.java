@@ -8,8 +8,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
 
+public class MainActivity extends AppCompatActivity {
+ private List<country> countries;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,5 +23,12 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        countries = new ArrayList<country>();
+        countries.add(new country(R.drawable.vn   ,"vietnam",countryCapital:""))
+        countries.add(new country(R.drawable.my  ,"my",))
+        countries.add(new country(R.drawable.ca  ,"canada",country))
+
+
     }
 }
