@@ -9,12 +9,13 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/staffListTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/staffIdEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -22,7 +23,7 @@
         android:inputType="text" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/staffFullNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -30,7 +31,7 @@
         android:inputType="text" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/birthDateEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -38,7 +39,7 @@
         android:inputType="text" />
 
     <EditText
-        android:id="@+id/editTextText4"
+        android:id="@+id/salaryEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -46,7 +47,7 @@
         android:inputType="text" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/addStaffButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

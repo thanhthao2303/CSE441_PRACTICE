@@ -16,70 +16,37 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int CAMERA_PERMISSION_CODE = 100;
-    private static final int CAMERA_REQUEST_CODE = 101;
-    private ImageView imageView;
-    private Button captureButton;
+
+    private RecyclerView recyclerView;
+    private CountryAdapter adapter;
+    private List<Country> countryList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        imageView = findViewById(R.id.imageView);
-        captureButton = findViewById(R.id.captureButton);
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        captureButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                checkPermissionAndOpenCamera();
-            }
+        countryList = new ArrayList<>();
+        countryList.add(new Country("India", "New Delhi", 1428600000, 2973190, R.drawable.india));
+        countryList.add(new Country("China", "Beijing", 1411800000, 9596961, R.drawable.vn));
+        // Thêm nhiều quốc gia khác
+
+        adapter = new CountryAdapter(countryList, country -> {
+            Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+            intent.putExtra("country", country);
+            startActivity(intent);
         });
-    }
-
-    private void checkPermissionAndOpenCamera() {
-        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) {
-            // Yêu cầu cấp quyền nếu chưa được cấp
-            ActivityCompat.requestPermissions(MainActivity.this,
-                    new String[]{Manifest.permission.CAMERA}, CAMERA_PERMISSION_CODE);
-        } else {
-            // Quyền đã được cấp, mở camera
-            openCamera();
-        }
-    }
-
-    private void openCamera() {
-        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(cameraIntent, CAMERA_REQUEST_CODE);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if (requestCode == CAMERA_PERMISSION_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Người dùng đã cấp quyền, mở camera
-                openCamera();
-            } else {
-                // Người dùng từ chối quyền, hiển thị thông báo
-                Toast.makeText(this, "Ứng dụng cần quyền truy cập Camera để chụp ảnh.", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == CAMERA_REQUEST_CODE && resultCode == RESULT_OK) {
-            // Nhận kết quả chụp ảnh và hiển thị
-            Bitmap imageBitmap = (Bitmap) data.getExtras().get("data");
-            imageView.setImageBitmap(imageBitmap);
-        }
+        recyclerView.setAdapter(adapter);
     }
 }
-//
+
+
