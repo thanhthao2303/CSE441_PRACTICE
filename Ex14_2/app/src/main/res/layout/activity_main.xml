@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity" >
 
     <TabHost
         android:id="@+id/tabhost"
@@ -33,7 +33,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
                     <include layout="@layout/layout1" /> <!-- Include layout1 -->
+
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -41,9 +44,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-                    <include layout="@layout/layout2" /> <!-- Include layout2 -->
+
+                    <include layout="@layout/layout2" /> <!-- Include layout1 -->
+
+
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/tab3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/layout3" /> <!-- Include layout1 -->
+
+
+                </LinearLayout>
             </FrameLayout>
         </LinearLayout>
     </TabHost>
